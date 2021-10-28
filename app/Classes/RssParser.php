@@ -22,7 +22,7 @@ class RssParser
      * 
      * @param bool $store when true, results from get and parse will be stored to the database.
      * 
-     * @return SimpleXMLElement
+     * @return bool true or string error
      */
     public function getAndParseFeed($url, $store = true)
     {
@@ -39,7 +39,7 @@ class RssParser
         curl_close($ch);
 
         if ($response === false || curl_getinfo($ch, CURLINFO_HTTP_CODE) != 200) {
-            return $err;                                                                        // return null to stop further processing
+            return $err;                                                                        // return error
         } else {
             $return = simplexml_load_string($response, 'SimpleXMLElement', LIBXML_NOCDATA);     // Set data for store
             // $podcast = new Podcast();
