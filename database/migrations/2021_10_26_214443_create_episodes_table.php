@@ -18,8 +18,8 @@ class CreateEpisodesTable extends Migration
             $table->unsignedBigInteger('podcast_id');
             $table->string('title');
             $table->text('description')->nullable();
-            $table->string('audio_url');
-            $table->string('episode_url')->nullable();
+            $table->text('audio_url');
+            $table->text('episode_url')->nullable();
             $table->softDeletes();
             $table->timestamps();
 

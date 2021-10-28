@@ -45,9 +45,9 @@ class RssCommand extends Command
 
         $feed = $rss->getAndParseFeed($url);
         if ($feed === true) {
-            echo $url ." - OK\n";
+            echo "\n\n".$url ." - OK\n\n";
         } else {
-            echo $url ." - ERROR (Getting and Parsing)\n";
+            echo "\n\n".$url ." - ERROR (Getting and Parsing)\n\n";
             return Command::FAILURE;
         }
 
