@@ -47,7 +47,7 @@ class RssCommand extends Command
         if ($feed === true) {
             echo "\n\n".$url ." - OK\n\n";
         } else {
-            echo "\n\n".$url ." - ERROR (Getting and Parsing)\n\n";
+            echo "\n\n".$url ." - ".$feed."\n\n";
             return Command::FAILURE;
         }
 

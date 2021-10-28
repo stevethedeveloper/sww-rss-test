@@ -35,10 +35,11 @@ class RssParser
         curl_setopt($ch, CURLOPT_FAILONERROR, true);
 
         $response = curl_exec($ch);
+        $err = curl_error($ch);
         curl_close($ch);
 
         if ($response === false || curl_getinfo($ch, CURLINFO_HTTP_CODE) != 200) {
-            return false;                                                                        // return null to stop further processing
+            return $err;                                                                        // return null to stop further processing
         } else {
             $return = simplexml_load_string($response, 'SimpleXMLElement', LIBXML_NOCDATA);     // Set data for store
             // $podcast = new Podcast();
